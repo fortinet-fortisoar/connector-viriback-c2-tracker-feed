@@ -1,0 +1,153 @@
+{
+  "name": "viriback-c2-tracker-feed",
+  "version": "1.0.0",
+  "label": "ViriBack C2 Tracker Feed",
+  "description": "ViriBack C2 Tracker is a C2 Tracker platform that instantly monitors current cyber threats. ViriBack C2 Tracker tracks malware activity and provides the URLs of the most recently detected Command and Control (C2) panels and the malware used on these panels. This connector facilitates automated operations related to fetching the list indicators. <br/><br/>This connector has a dependency on the <a href=\"/content-hub/all-content/?contentType=solutionpack&amp;tag=ThreatIntelManagement\" target=\"_blank\" rel=\"noopener\">Threat Intel Management Solution Pack</a>. Install the Solution Pack before enabling ingestion of Threat Feeds from this source.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "contributor": "",
+  "help_online": "",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "category": "Threat Intelligence",
+  "ingestion_supported": true,
+  "ingestion_modes": [
+    "scheduled"
+  ],
+  "tags": [
+    "ThreatIntel"
+  ],
+  "ingestion_preferences": {
+    "modules": [
+      "threat_intel_feeds",
+      "indicators"
+    ]
+  },
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "description": "Specify the URL of the ViriBack C2 Tracker server to connect and perform automated operations.",
+        "type": "text",
+        "name": "server_url",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "value": "https://tracker.viriback.com",
+        "tooltip": "Specify the URL of the ViriBack C2 Tracker server to connect and perform automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True.",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_indicators",
+      "title": "Get Indicators",
+      "description": "Retrieves a list of all indicators from ViriBack C2 Tracker Feed.",
+      "category": "investigation",
+      "annotation": "get_indicators",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Process Response As",
+          "name": "output_mode",
+          "visible": true,
+          "required": false,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "Create as Feed Records in FortiSOAR",
+            "Return as a JSON"
+          ],
+          "value": "Create as Feed Records in FortiSOAR",
+          "tooltip": "The Feed Data can either be returned as a JSON or Created as Feed Records in FortiSOAR",
+          "description": "Select the method of returning the Feed Data information. You can choose from following options: Create as Feed Records in FortiSOAR: Specify the IRI of the Record Creation Playbook in Record Creation Playbook IRI field. Return as a JSON: Select this option to receive feeds as a JSON object.",
+          "onchange": {
+            "Create as Feed Records in FortiSOAR": [
+              {
+                "title": "Record Creation Playbook IRI",
+                "description": "Specify the IRI of the playbook that creates feed records in FortiSOAR™ in the Record Creation Playbook IRI field.",
+                "type": "text",
+                "name": "create_pb_id",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "tooltip": "Specify the IRI of the playbook that creates feed records in FortiSOAR™ in the Record Creation Playbook IRI field."
+              },
+              {
+                "title": "Confidence",
+                "name": "confidence",
+                "type": "integer",
+                "tooltip": "Specify the confidence score to be set for the feeds. Specify the range between 0 to 100. By default, this option is set to 90.",
+                "description": "Specify the confidence score to be set for the feeds. Specify the range between 0 to 100. By default, this option is set to 90.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "value": 90,
+                "validation": {
+                  "minlength": 0,
+                  "maxlength": 100
+                }
+              },
+              {
+                "title": "Reputation",
+                "name": "reputation",
+                "type": "select",
+                "tooltip": "Select the reputation to be set for the feeds. By default, this option is set to \"Good\"",
+                "description": "Select the reputation to be set for the feeds. You can choose from the following options:  \nGood, Suspicious, Malicious, No Reputation Available, TBD.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "options": [
+                  "Good",
+                  "Suspicious",
+                  "Malicious",
+                  "No Reputation Available",
+                  "TBD"
+                ],
+                "value": "Good"
+              },
+              {
+                "title": "TLP",
+                "name": "tlp",
+                "type": "select",
+                "tooltip": "Select the TLP to be set for the feeds. By default, this option is set to \"White\"",
+                "description": "Select the TLP to be set for the feeds. You can choose from the following options:  \nRed, Amber, Green, White.",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "options": [
+                  "Red",
+                  "Amber",
+                  "Green",
+                  "White"
+                ],
+                "value": "White"
+              }
+            ],
+            "Return as a JSON": []
+          }
+        }
+      ],
+      "output_schema": [
+        {
+          "Family": "",
+          "URL": "",
+          "IP": "",
+          "FirstSeen": ""
+        }
+      ]
+    }
+  ]
+}
