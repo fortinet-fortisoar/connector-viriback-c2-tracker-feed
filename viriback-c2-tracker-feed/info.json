@@ -7,7 +7,7 @@
   "cs_approved": true,
   "cs_compatible": true,
   "contributor": "",
-  "help_online": "",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-viriback-c2-tracker-feed/blob/release/1.0.0/docs/ViriBackFeed.md",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "category": "Threat Intelligence",
