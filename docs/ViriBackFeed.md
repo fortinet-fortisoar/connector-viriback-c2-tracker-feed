@@ -63,10 +63,6 @@ The `Sample - ViriBack C2 Tracker Feed - 1.0.0` playbook collection comes bundle
 - ViriBack C2 Tracker Feed > Ingest > Fetch
 
 **Note**: If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection since the sample playbook collection gets deleted during connector upgrade and delete.
-## Data Ingestion Support
-Use the Data Ingestion Wizard to easily ingest data into FortiSOAR&trade; by pulling events/alerts/incidents, based on the requirement.
-
-**TODO:** provide the list of steps to configure the ingestion with the screen shots and limitations if any in this section.
 
 ## Data Ingestion Support
 
