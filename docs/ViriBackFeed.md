@@ -39,10 +39,10 @@ The following automated operations can be included in playbooks and you can also
 
 ### operation: Get Indicators
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Process Response As</td><td>Select the method of returning the Feed Data information. You can choose from following options: Create as Feed Records in FortiSOAR: Specify the IRI of the Record Creation Playbook in Record Creation Playbook IRI field. Return as a JSON: Select this option to receive feeds as a JSON object.
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Process Response As</td><td>Select the method of returning the Feed Data information. You can choose from following options: <br> Create as Feed Records in FortiSOAR: Specify the IRI of the Record Creation Playbook in Record Creation Playbook IRI field. <br> Return as a JSON: Select this option to receive feeds as a JSON object.
 <br><strong>If you choose 'Create as Feed Records in FortiSOAR'</strong><ul><li>Record Creation Playbook IRI: Specify the IRI of the playbook that creates feed records in FortiSOAR™ in the Record Creation Playbook IRI field.</li><li>Confidence: Specify the confidence score to be set for the feeds. Specify the range between 0 to 100. By default, this option is set to 90.</li><li>Reputation: Select the reputation to be set for the feeds. You can choose from the following options:  
 Good, Suspicious, Malicious, No Reputation Available, TBD.</li><li>TLP: Select the TLP to be set for the feeds. You can choose from the following options:  
-Red, Amber, Green, White.</li></ul><strong>If you choose 'Return as a JSON'</strong><ul></ul></td></tr></tbody></table>
+Red, Amber, Green, White.</li></ul></td></tr></tbody></table>
 
 #### Output
 The output contains the following populated JSON schema:
@@ -78,7 +78,7 @@ Before you begin ingesting data into FortiSOAR, it is strongly recommended that 
 
 ### Configure Data Ingestion
 
-You can configure data ingestion using the “Data Ingestion Wizard” to seamlessly map the incoming ViriBack C2 Tracker Feed data to FortiSOAR™ "threat intel feeds". 
+You can configure data ingestion using the “Data Ingestion Wizard” to seamlessly map the incoming ViriBack C2 Tracker Feed data to FortiSOAR™ "Threat Intel Feeds". 
 
 The Data Ingestion Wizard enables you to configure the scheduled pulling of data from the ViriBack C2 Tracker Feed into FortiSOAR™. It also lets you pull some sample data from ViriBack C2 Tracker Feed using which you can define the mapping of data between the ViriBack C2 Tracker Feed and FortiSOAR™. The mapping of common fields is generally already done by the Data Ingestion Wizard; users are mostly required to only map any custom fields that are added to the ViriBack C2 Tracker Feed.
 
@@ -96,7 +96,7 @@ Sample data is required to create a field mapping between the ViriBack C2 Tracke
 The fetched data is used to create a mapping between the ViriBack C2 Tracker Feeds and FortiSOAR™ threat intel feeds. Once you have completed specifying the configurations, click Fetch Data.
 
 3.  On the Field Mapping screen, map the fields of a ViriBack C2 Tracker Feed to the fields of a threat intel feed present in FortiSOAR™.
-To map a field, click the key in the sample data to add the “jinja” value of the field. For example, to map the MD5 parameter of a ViriBack C2 Tracker Feed to the value parameter of a FortiSOAR™ threat intel feed, click the value field, and then click the MD5 field to populate its keys: 
+To map a field, click the key in the sample data to add the “jinja” value of the field. For example, to map the URL parameter of a ViriBack C2 Tracker Feed to the value parameter of a FortiSOAR™ threat intel feed, click the value field, and then click the URL field to populate its keys: 
 
 ![](media/mapping.png)
 
