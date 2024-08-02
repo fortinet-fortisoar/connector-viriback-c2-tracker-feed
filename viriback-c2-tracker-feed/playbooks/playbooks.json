@@ -62,7 +62,7 @@
                   "confidence": "{{vars.confidence}}",
                   "reputation": "{{vars.reputation}}",
                   "output_mode": "Create as Feed Records in FortiSOAR",
-                  "create_pb_id": ""
+                  "create_pb_id": "f7243101-9f97-4fca-931b-ad71e273d733"
                 },
                 "version": "1.0.0",
                 "connector": "viriback-c2-tracker-feed",
